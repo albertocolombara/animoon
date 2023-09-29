@@ -1,6 +1,6 @@
 import { apiUrl, secAniIntro, toggleBemVindo } from "../main_original.js";
 import { acessarPersonagens } from "./persAnime.js";
-import { formatarTitulo, ratingStars, verificarStatusAnime } from "./utils.js";
+import { formatarTitulo, ratingStars, verificarStatusAnime, formatarData } from "./utils.js";
 
 export function acessarAnime(idAnime) {
     fetch(`${apiUrl}/` + idAnime)
@@ -31,11 +31,11 @@ export function acessarAnime(idAnime) {
                     </div>
                     <div class="anime__extra-info">
                         <span class="info-title">Início</span>
-                        <p>${aniDataAtt.startDate}</p>
+                        <p>${formatarData(aniDataAtt.startDate)}</p>
                     </div>
                     <div class="anime__extra-info">
                         <span class="info-title">Fim</span>
-                        <p>${aniDataAtt.endDate ?? "Não finalizado"}</p>
+                        <p>${formatarData(aniDataAtt.endDate) ?? "Não finalizado"}</p>
                     </div>
                     <div class="anime__extra-info">
                         <span class="info-title">Episódios</span>
