@@ -25,3 +25,13 @@ export function ratingStars(averageRating) {
         return "★ ☆ ☆ ☆ ☆";
     }
 }
+
+export function verificarStatusAnime(status) {
+    if (status === "current") {
+        return "No ar";
+    } else if (status === "upcoming") {
+        return "Em breve";
+    } else {
+        return "Finalizado";
+    }
+}

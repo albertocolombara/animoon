@@ -1,6 +1,6 @@
 import { apiUrl, secAniIntro, toggleBemVindo } from "../main_original.js";
 import { acessarPersonagens } from "./persAnime.js";
-import { formatarTitulo, ratingStars } from "./utils.js";
+import { formatarTitulo, ratingStars, verificarStatusAnime } from "./utils.js";
 
 export function acessarAnime(idAnime) {
     fetch(`${apiUrl}/` + idAnime)
@@ -11,6 +11,7 @@ export function acessarAnime(idAnime) {
         } else return response.json();
     })
     .then((anime) => {
+        console.log(anime)
         const aniDataAtt = anime.data.attributes;
         const backgroundImage = aniDataAtt.coverImage ? `${aniDataAtt.coverImage.large}` : `${aniDataAtt.posterImage.large}`;
         secAniIntro.style.display = "flex";
@@ -20,12 +21,30 @@ export function acessarAnime(idAnime) {
                 <img src="${aniDataAtt.posterImage.small}" alt="${formatarTitulo(aniDataAtt)}">
             </div>
             <div class="anime__intro-right">
-                <span>${ratingStars(aniDataAtt.averageRating)}</span>
-                <h2>${formatarTitulo(aniDataAtt)}</h2>
-                <p>${aniDataAtt.description}</p>
+                <span class="anime__ratings">${aniDataAtt.showType.charAt(0).toUpperCase() + aniDataAtt.showType.slice(1)} | ${ratingStars(aniDataAtt.averageRating)}</span>
+                <h2 class="anime__title">${formatarTitulo(aniDataAtt)}</h2>
+                <p class="anime__desc">${aniDataAtt.description}</p>
+                <div class="anime__extra-infos">
+                    <div class="anime__extra-info">
+                        <span class="info-title">Status</span>
+                        <p>${verificarStatusAnime(aniDataAtt.status)}</p>
+                    </div>
+                    <div class="anime__extra-info">
+                        <span class="info-title">Início</span>
+                        <p>${aniDataAtt.startDate}</p>
+                    </div>
+                    <div class="anime__extra-info">
+                        <span class="info-title">Fim</span>
+                        <p>${aniDataAtt.endDate ?? "Não finalizado"}</p>
+                    </div>
+                    <div class="anime__extra-info">
+                        <span class="info-title">Episódios</span>
+                        <p>${aniDataAtt.episodeCount} - Duração: ${aniDataAtt.episodeLength} min</p>
+                    </div>
+                </div>
             </div>
         `
-        acessarPersonagens(anime.data.id)
+        // acessarPersonagens(anime.data.id)
     })
     .catch(error => console.error("Anime não exibido. Erro na requisição:", error))
 }
