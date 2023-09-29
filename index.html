@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animoon - Procure um anime</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="app/css/style.css">
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html"><img src="imgs/logo.svg" alt="Logo"></a>
+    </header>
+
+    <div class="nav padding-lr">
+        <a class="nav__voltar" href="index.html"><img src="imgs/home.svg" alt="Voltar para a Home">Home</a>
+        <div class="nav__pesquisa">
+            <input type="text" id="campoDePesquisa" placeholder="Pesquise por um anime">
+            <ul id="resultados"></ul>
+        </div>
+        <a class="nav__randomizar"><img src="imgs/dice.svg">Sortear</a>
+    </div>
+
+    <div class="bem-vindo">
+        <h2>Bem-vindo</h2>
+        <p>Procure por um anime utilizando o campo de pesquisa acima</p>
+    </div>
+
+    <div class="anime">
+        <div class="anime__intro padding-lr"></div>
+        <div class="anime__options">
+            <div class="anime__options-personagens"></div>
+            <div class="anime__options-staff"></div>
+        </div>
+    </div>
+
+    <script type="module" src="app/js/main_original.js"></script>
+</body>
+</html>

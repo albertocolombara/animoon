@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    background: $dark-blue;
+    color: white;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.padding-lr {
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+*::-webkit-scrollbar-track {
+    background: $dark-blue;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #3940c580;
+    border-radius: 20px;
+}
+
+.bem-vindo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 15vh - 20px);
+    background: linear-gradient(to top, #06093f80, #06093f9f), url('/imgs/pixel.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bem-vindo h2 {
+    font-size: 64px;
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+@keyframes diceAni {
+    100% {
+        transform: rotate(15deg);
+    }
+}

@@ -1,0 +1,48 @@
+.anime {
+
+    &__intro {
+        align-items: center;
+        padding-block: 120px;
+        display: none;
+    
+        p {
+            line-height: 22px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    
+        h2 {
+            line-height: 50px;
+            margin-top: 20px;
+            font-size: 42px;
+        }
+        
+        &-left, &-right {
+            flex: 1;
+        }
+    
+        &-left {
+            width: 100%;
+    
+            img {
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    }
+    
+    &__personagens {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column-reverse;
+            gap: 10px;
+        }
+    }
+
+}
