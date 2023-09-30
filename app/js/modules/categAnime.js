@@ -1,7 +1,7 @@
 import { apiUrl } from "../main_original.js";
 
 export function acessarCategorias(idAnime) {
-    const secAniCat = document.querySelector('.listar-categorias')
+    const secAniCat = document.querySelector('.anime__categorias')
     secAniCat.innerHTML = " ";
 
     fetch(`${apiUrl}/${idAnime}/categories?sort=title`)

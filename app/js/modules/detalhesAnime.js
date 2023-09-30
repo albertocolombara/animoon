@@ -30,6 +30,7 @@ export function acessarAnime(idAnime) {
                     <a class="anime__top-favorite">Favoritar</a>
                 </div>
                 <h2 class="anime__title">${formatarTitulo(aniDataAtt)}</h2>
+                <div class="anime__categorias"></div>
                 <p class="anime__desc">${aniDataAtt.description}</p>
                 <div class="anime__extra-infos">
                     <div class="anime__extra-info">
@@ -51,10 +52,9 @@ export function acessarAnime(idAnime) {
                 </div>
             </div>
         `
+        acessarCategorias(anime.data.id)
         // acessarPersonagens(anime.data.id)
-        acessarCategorias(anime.data.id);
         acessarStaff(anime.data.id);
-
     })
     .catch(error => console.error("Anime não exibido. Erro na requisição:", error))
 }

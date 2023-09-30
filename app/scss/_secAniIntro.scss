@@ -14,7 +14,7 @@
     
         h2 {
             line-height: 50px;
-            margin-top: 20px;
+            margin-top: 10px;
             font-size: 42px;
         }
     
@@ -96,8 +96,23 @@
 
 }
 
-.listar-categorias {
+.anime__categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+
     span {
+        padding: 8px;
         cursor: help;
+        font-size: 10px;
+        color: #e2e4ffea;
+        font-weight: 300;
+        background: rgba(11, 13, 46, 0.57);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(1.1px);
+        -webkit-backdrop-filter: blur(1.1px);
+        border-radius: 12px;
+        border: 1px solid #8d93ff67;
     }
 }
