@@ -16,19 +16,19 @@ export function ratingStars(averageRating) {
     if (formatarRating >= 80) {
         return "★ ★ ★ ★ ★";
     } else if (formatarRating >= 60) {
-        return "★ ★ ★ ★ ☆";
+        return "★ ★ ★ ★";
     } else if (formatarRating >= 40) {
-        return "★ ★ ★ ☆ ☆";
+        return "★ ★ ★";
     } else if (formatarRating >= 20) {
-        return "★ ★ ☆ ☆ ☆";
+        return "★ ★ ";
     } else {
-        return "★ ☆ ☆ ☆ ☆";
+        return "★";
     }
 }
 
 export function verificarStatusAnime(status) {
     if (status === "current") {
-        return "No ar";
+        return "Em exibição";
     } else if (status === "upcoming") {
         return "Em breve";
     } else {
@@ -37,10 +37,13 @@ export function verificarStatusAnime(status) {
 }
 
 export function formatarData(data) {
-    const partesData = data.split('-');
-    const ano = partesData[0];
-    const mes = partesData[1];
-    const dia = partesData[2];
-    const dataFormatada = dia + "/" + mes + "/" + ano;
-    return(dataFormatada);
+    if (data) {
+        const partesData = data.split('-');
+        const ano = partesData[0];
+        const mes = partesData[1];
+        const dia = partesData[2];
+        const dataFormatada = dia + "/" + mes + "/" + ano;
+        return(dataFormatada);
+    } else return "-"
+
 }

@@ -8,9 +8,15 @@ export function iniciarPesquisa() {
         capitalizarPesquisa(campoDePesquisa);
     
         if (termoDePesquisa.length >= 3) {
-            fetch(`${apiUrl}?filter[text]=${termoDePesquisa}&fields[anime]=titles,posterImage`)
+            fetch(`${apiUrl}?filter[text]=${termoDePesquisa}&fields[anime]=titles,posterImage&page[limit]=7`)
                 .then(response => response.json())
-                .then(data => exibirResultados(data))
+                .then((busca) => {
+                    const filtrarBusca = busca.data.filter(anime => 
+                        !["delete", "deleted", "Delete"].includes(anime.attributes.titles.en) &&
+                        !["delete", "deleted", "Delete"].includes(anime.attributes.titles.en_jp)
+                    );
+                    exibirResultados(filtrarBusca);
+                })
                 .catch(error => console.error("Pesquisa interrompida. Erro na requisição:", error))
         } else resultadosDePesquisa.innerHTML = "";
     })
@@ -18,8 +24,8 @@ export function iniciarPesquisa() {
     function exibirResultados(dadosAnime) {
         resultadosDePesquisa.innerHTML = "";
     
-        if (Array.isArray(dadosAnime.data)) {
-            dadosAnime.data.forEach ((anime) => {
+        if (Array.isArray(dadosAnime)) {
+            dadosAnime.forEach ((anime) => {
                 const pesquisaTitulo = document.createElement('a');
                 const pesquisaImg = document.createElement('img');
                 const pesquisaLi = document.createElement('li');

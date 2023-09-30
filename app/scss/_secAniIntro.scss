@@ -32,6 +32,40 @@
 
             flex: 1.4;
 
+            .anime__top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &-favorite {
+                    padding: 10px 20px;
+                    border: 1px solid white;
+                    border-radius: 6px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all .3s ease-in-out;
+
+                    &::before {
+                        content: "♡ ";                    
+                    }
+
+                    &:hover {
+                        background-color: white;
+                        color: #952F27;
+                        transition: all .3s ease-in-out;
+                        box-shadow: 1px 1px 14px #fccecb;
+                        
+                        &::before {
+                            content: "♥ ";
+                        }
+                    }
+
+ 
+                }
+                
+            }
+
             .anime__extra-infos {
                 background-color: #0b0d2ec4;
                 display: grid;
@@ -60,4 +94,10 @@
     }
     
 
+}
+
+.listar-categorias {
+    span {
+        cursor: help;
+    }
 }

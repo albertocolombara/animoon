@@ -1,13 +1,17 @@
-import { apiUrl, secAniIntro, toggleBemVindo } from "../main_original.js";
+import { apiUrl, secAniIntro, toggleBemVindo, secAni } from "../main_original.js";
+import { acessarCategorias } from "./categAnime.js";
+import { acessarStaff } from "./staffAnime.js";
 import { acessarPersonagens } from "./persAnime.js";
 import { formatarTitulo, ratingStars, verificarStatusAnime, formatarData } from "./utils.js";
 
 export function acessarAnime(idAnime) {
+    secAni.style.display = "initial";
     fetch(`${apiUrl}/` + idAnime)
     .then(response => {
         if (!response.ok) {
-            alert("Anime não encontrado na base de dados T_T. Sorteie novamente!");
+            alert("Houve um erro ao mostrar o anime T-T. Sorteie novamente!");
             toggleBemVindo.style.display = 'flex';
+            secAni.style.display = "none";
         } else return response.json();
     })
     .then((anime) => {
@@ -21,7 +25,10 @@ export function acessarAnime(idAnime) {
                 <img src="${aniDataAtt.posterImage.small}" alt="${formatarTitulo(aniDataAtt)}">
             </div>
             <div class="anime__intro-right">
-                <span class="anime__ratings">${aniDataAtt.showType.charAt(0).toUpperCase() + aniDataAtt.showType.slice(1)} | ${ratingStars(aniDataAtt.averageRating)}</span>
+                <div class="anime__top">
+                    <span class="anime__top-ratings">${aniDataAtt.showType.charAt(0).toUpperCase() + aniDataAtt.showType.slice(1)} | ${ratingStars(aniDataAtt.averageRating)}</span>
+                    <a class="anime__top-favorite">Favoritar</a>
+                </div>
                 <h2 class="anime__title">${formatarTitulo(aniDataAtt)}</h2>
                 <p class="anime__desc">${aniDataAtt.description}</p>
                 <div class="anime__extra-infos">
@@ -39,12 +46,21 @@ export function acessarAnime(idAnime) {
                     </div>
                     <div class="anime__extra-info">
                         <span class="info-title">Episódios</span>
-                        <p>${aniDataAtt.episodeCount} - Duração: ${aniDataAtt.episodeLength} min</p>
+                        <p>${aniDataAtt.episodeCount} ${verificarDuracao(aniDataAtt.episodeLength)}</p>
                     </div>
                 </div>
             </div>
         `
         // acessarPersonagens(anime.data.id)
+        acessarCategorias(anime.data.id);
+        acessarStaff(anime.data.id);
+
     })
     .catch(error => console.error("Anime não exibido. Erro na requisição:", error))
+}
+
+function verificarDuracao(duracao) {
+    if (duracao) {
+        return `- Duração: ${duracao} min`
+    } else return " "
 }

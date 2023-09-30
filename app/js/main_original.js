@@ -1,5 +1,6 @@
 import { iniciarPesquisa } from "./modules/pesquisa.js";
 import { sortearAnime } from "./modules/sortearAnime.js";
+import { acessarStaff } from "./modules/staffAnime.js";
 
 export const apiUrl = 'https://kitsu.io/api/edge/anime';
 export const campoDePesquisa = document.getElementById("campoDePesquisa");
