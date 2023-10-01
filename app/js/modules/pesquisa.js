@@ -1,5 +1,5 @@
 import { campoDePesquisa, resultadosDePesquisa, apiUrl } from "../main_original.js";
-import { acessarAnime } from "./detalhesAnime.js";
+import { acessarAnime } from "./animeRender.js";
 import { formatarTitulo, limparTela } from "./utils.js";
 
 export function iniciarPesquisa() {

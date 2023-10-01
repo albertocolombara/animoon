@@ -1,12 +1,13 @@
-import { apiUrl, secAniIntro, toggleBemVindo, secAni } from "../main_original.js";
-import { acessarCategorias } from "./categAnime.js";
-import { acessarStaff } from "./staffAnime.js";
-import { acessarPersonagens } from "./persAnime.js";
-import { formatarTitulo, ratingStars, verificarStatusAnime, formatarData } from "./utils.js";
+import { apiUrl, secAniIntro, secAniBottom, toggleBemVindo, secAni } from "../main_original.js";
+import { acessarCategorias } from "./animeCategoria.js";
+import { acessarStaff } from "./animeStaff.js";
+import { acessarDetalhes } from "./animeDetalhes.js";
+import { acessarPersonagens } from "./animePersonagem.js";
+import { formatarTitulo, ratingStars, verificarStatusAnime, verificarDuracao } from "./utils.js";
 
 export function acessarAnime(idAnime) {
     secAni.style.display = "initial";
-    fetch(`${apiUrl}/` + idAnime)
+    fetch(`${apiUrl}/${idAnime}`)
     .then(response => {
         if (!response.ok) {
             alert("Houve um erro ao mostrar o anime T-T. Sorteie novamente!");
@@ -15,11 +16,11 @@ export function acessarAnime(idAnime) {
         } else return response.json();
     })
     .then((anime) => {
-        console.log(anime);
         const aniDataAtt = anime.data.attributes;
         const backgroundImage = aniDataAtt.coverImage ? `${aniDataAtt.coverImage.original}` : `${aniDataAtt.posterImage.original}`;
         secAniIntro.style.display = "flex";
-        secAniIntro.style.background = "linear-gradient(to bottom, #06093fbe, #06093f)," + `url('${backgroundImage}')` + "no-repeat center center / cover";
+        secAniIntro.style.background = "linear-gradient(to bottom, #06093fbe, #06093f)," + `url('${backgroundImage}')` + "no-repeat top center / cover";
+        secAniBottom.style.background = "linear-gradient(to top, #06093fe8, #06093f)," + `url('${backgroundImage}')` + "no-repeat bottom center / cover";
         secAniIntro.innerHTML = `
             <div class="anime__intro-left">
                 <img src="${aniDataAtt.posterImage.small}" alt="${formatarTitulo(aniDataAtt)}">
@@ -34,33 +35,25 @@ export function acessarAnime(idAnime) {
                 <div class="anime__desc"><p>${aniDataAtt.description ?? ""}</p></div>
                 <div class="anime__extra-infos">
                     <div class="anime__extra-info">
-                        <span class="info-title">Status</span>
+                        <h4 class="info-title">Status</h4>
                         <p>${verificarStatusAnime(aniDataAtt.status)}</p>
                     </div>
                     <div class="anime__extra-info">
-                        <span class="info-title">Início</span>
-                        <p>${formatarData(aniDataAtt.startDate)}</p>
+                        <h4 class="info-title">Episódios</h4>
+                        <p>${aniDataAtt.episodeCount ?? "-"}</p>
                     </div>
                     <div class="anime__extra-info">
-                        <span class="info-title">Fim</span>
-                        <p>${formatarData(aniDataAtt.endDate) ?? "Não finalizado"}</p>
-                    </div>
-                    <div class="anime__extra-info">
-                        <span class="info-title">Episódios</span>
-                        <p>${aniDataAtt.episodeCount ?? "-"} ${verificarDuracao(aniDataAtt.episodeLength)}</p>
+                        <h4 class="info-title">Duração Ep</h4>
+                        <p>${verificarDuracao(aniDataAtt.episodeLength)}</p>
                     </div>
                 </div>
             </div>
         `
         acessarCategorias(anime.data.id);
+        acessarDetalhes(anime.data.id);
         acessarPersonagens(anime.data.id);
         acessarStaff(anime.data.id);
     })
     .catch(error => console.error("Anime não exibido. Erro na requisição:", error))
 }
 
-function verificarDuracao(duracao) {
-    if (duracao) {
-        return `- Duração: ${duracao} min`
-    } else return " "
-}

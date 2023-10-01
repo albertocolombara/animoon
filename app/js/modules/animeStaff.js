@@ -28,7 +28,8 @@ export function acessarStaff(idAnime) {
     
                             nameStaff.textContent = staffPerson.data.attributes.name;
                             roleStaff.textContent = staffRoles;
-    
+                            divStaff.classList.add('listar-staff-item');
+
                             divStaff.appendChild(nameStaff);
                             divStaff.appendChild(roleStaff);
                             listaStaff.appendChild(divStaff);
@@ -38,7 +39,9 @@ export function acessarStaff(idAnime) {
                 }
             } else {
                 const semStaff = document.createElement('span');
-                semStaff.textContent = "Membros da Staff não encontrados :("
+                semStaff.textContent = "Membros da Staff não encontrados :(";
+                semStaff.style.color = "color: #e2e4ffea;"
+                semStaff.style.fontSize = "12px";
                 secAniStaff.appendChild(semStaff);
             } 
 

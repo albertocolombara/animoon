@@ -15,7 +15,6 @@ export function acessarPersonagens(idAnime) {
     fetch(`${apiUrl}/${idAnime}/characters?sort=role`)
         .then(response => response.json())
         .then(personagens => {
-            console.log(personagens.data.length)
             if (personagens.data.length > 0) {
                 if (Array.isArray(personagens.data)) {
                     const personagensPrincipais = personagens.data.filter(personagem => personagem.attributes.role === 'main');
@@ -26,7 +25,7 @@ export function acessarPersonagens(idAnime) {
                             fetch(`https://kitsu.io/api/edge/characters/${personagens.data.id}`)
                                 .then(response => response.json())
                                 .then(personagens => {
-                                    const nomePersonagem = document.createElement('span');
+                                    const nomePersonagem = document.createElement('h4');
                                     const imgPersonagem = document.createElement('img');
                                     const divPersonagem = document.createElement('div');
     
@@ -47,7 +46,9 @@ export function acessarPersonagens(idAnime) {
                 } 
             } else {
                 const semPers = document.createElement('span');
-                semPers.textContent = "Personagens não encontrados :("
+                semPers.textContent = "Personagens não encontrados :(";
+                semPers.style.color = "color: #e2e4ffea;"
+                semPers.style.fontSize = "12px";
                 secAniPers.appendChild(semPers);
             }        
         })

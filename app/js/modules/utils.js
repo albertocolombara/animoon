@@ -45,5 +45,27 @@ export function formatarData(data) {
         const dataFormatada = dia + "/" + mes + "/" + ano;
         return(dataFormatada);
     } else return "-"
+}
 
+export function formatarTemporada(data) {
+    if (data) {
+        const partesData = data.split('-');
+        const mes = partesData[1];
+        const ano = partesData[0];
+        let temp = "";
+        if (mes >= 1 && mes < 3) {
+            temp = "Inverno";
+        } else if (mes >= 4 && mes < 7) {
+            temp = "Primavera";
+        } else if (mes >= 7 && mes < 10) {
+            temp = "Verão";
+        } else temp = "Outono";
+        return (`${temp} / ${ano}`);
+    } else return "-"
+}
+
+export function verificarDuracao(duracao) {
+    if (duracao) {
+        return `${duracao} min`
+    } else return " "
 }

@@ -1,4 +1,4 @@
-import { acessarAnime } from "./detalhesAnime.js";
+import { acessarAnime } from "./animeRender.js";
 import { limparTela } from "./utils.js";
 
 export function sortearAnime() {
