@@ -1,0 +1,54 @@
+.anime {
+
+    &__info-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        .anime__info-personagens {
+            display: none;
+            background: rgba(11, 13, 46, 0.57);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(1.1px);
+            -webkit-backdrop-filter: blur(1.1px);
+            border: 1px solid #8d93ff67;
+            border-radius: 6px;
+            padding: 25px;
+
+            h3 {
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+
+            .listar-personagens {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(100px, 1fr));
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                flex-direction: column;
+
+                &-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    & span {
+                        align-self: flex-start;
+                        justify-self: flex-start;
+                    }
+                }
+        }
+
+        }
+    }
+}
+
+.nome-personagem::after {
+    content: "Principal";
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    font-size: 12px;
+
+}

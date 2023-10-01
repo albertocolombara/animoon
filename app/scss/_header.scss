@@ -93,7 +93,8 @@ header {
     }
 
     &__randomizar {
-        background-color: #952F27;
+        background: rgb(149,47,39);
+        background: linear-gradient(45deg, rgba(149,47,39,1) 0%, rgba(115,18,10,1) 100%);
         height: 100%;
         display: flex;
         justify-content: center;

@@ -15,9 +15,9 @@ export function acessarAnime(idAnime) {
         } else return response.json();
     })
     .then((anime) => {
-        console.log(anime)
+        console.log(anime);
         const aniDataAtt = anime.data.attributes;
-        const backgroundImage = aniDataAtt.coverImage ? `${aniDataAtt.coverImage.large}` : `${aniDataAtt.posterImage.large}`;
+        const backgroundImage = aniDataAtt.coverImage ? `${aniDataAtt.coverImage.original}` : `${aniDataAtt.posterImage.original}`;
         secAniIntro.style.display = "flex";
         secAniIntro.style.background = "linear-gradient(to bottom, #06093fbe, #06093f)," + `url('${backgroundImage}')` + "no-repeat center center / cover";
         secAniIntro.innerHTML = `
@@ -31,7 +31,7 @@ export function acessarAnime(idAnime) {
                 </div>
                 <h2 class="anime__title">${formatarTitulo(aniDataAtt)}</h2>
                 <div class="anime__categorias"></div>
-                <p class="anime__desc">${aniDataAtt.description}</p>
+                <div class="anime__desc"><p>${aniDataAtt.description ?? ""}</p></div>
                 <div class="anime__extra-infos">
                     <div class="anime__extra-info">
                         <span class="info-title">Status</span>
@@ -47,13 +47,13 @@ export function acessarAnime(idAnime) {
                     </div>
                     <div class="anime__extra-info">
                         <span class="info-title">Episódios</span>
-                        <p>${aniDataAtt.episodeCount} ${verificarDuracao(aniDataAtt.episodeLength)}</p>
+                        <p>${aniDataAtt.episodeCount ?? "-"} ${verificarDuracao(aniDataAtt.episodeLength)}</p>
                     </div>
                 </div>
             </div>
         `
-        acessarCategorias(anime.data.id)
-        // acessarPersonagens(anime.data.id)
+        acessarCategorias(anime.data.id);
+        acessarPersonagens(anime.data.id);
         acessarStaff(anime.data.id);
     })
     .catch(error => console.error("Anime não exibido. Erro na requisição:", error))

@@ -31,9 +31,9 @@ export function verificarStatusAnime(status) {
         return "Em exibição";
     } else if (status === "upcoming") {
         return "Em breve";
-    } else {
-        return "Finalizado";
-    }
+    } else if (status === "tba") {
+        return "Não anunciado";
+    } else return "Finalizado"
 }
 
 export function formatarData(data) {
