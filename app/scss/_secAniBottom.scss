@@ -53,6 +53,11 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    
+                    img {
+                        object-fit: cover;
+                        height: 100%;
+                    }
 
                     .nome-personagem::after {
                         content: "Principal";

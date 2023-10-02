@@ -5,6 +5,8 @@ import { acessarDetalhes } from "./animeDetalhes.js";
 import { acessarPersonagens } from "./animePersonagem.js";
 import { formatarTitulo, ratingStars, verificarStatusAnime, verificarDuracao } from "./utils.js";
 
+
+
 export function acessarAnime(idAnime) {
     secAni.style.display = "initial";
     fetch(`${apiUrl}/${idAnime}`)
@@ -33,22 +35,29 @@ export function acessarAnime(idAnime) {
                 <h2 class="anime__title">${formatarTitulo(aniDataAtt)}</h2>
                 <div class="anime__categorias"></div>
                 <div class="anime__desc"><p>${aniDataAtt.description ?? ""}</p></div>
-                <div class="anime__extra-infos">
-                    <div class="anime__extra-info">
-                        <h4 class="info-title">Status</h4>
-                        <p>${verificarStatusAnime(aniDataAtt.status)}</p>
+                <div class="anime__wrapper">
+                    <div class="anime__extra-infos">
+                        <div class="anime__extra-info">
+                            <h4 class="info-title">Status</h4>
+                            <p>${verificarStatusAnime(aniDataAtt.status)}</p>
+                        </div>
+                        <div class="anime__extra-info">
+                            <h4 class="info-title">Episódios</h4>
+                            <p>${aniDataAtt.episodeCount ?? "-"}</p>
+                        </div>
+                        <div class="anime__extra-info">
+                            <h4 class="info-title">Duração Ep</h4>
+                            <p>${verificarDuracao(aniDataAtt.episodeLength)}</p>
+                        </div>
                     </div>
-                    <div class="anime__extra-info">
-                        <h4 class="info-title">Episódios</h4>
-                        <p>${aniDataAtt.episodeCount ?? "-"}</p>
-                    </div>
-                    <div class="anime__extra-info">
-                        <h4 class="info-title">Duração Ep</h4>
-                        <p>${verificarDuracao(aniDataAtt.episodeLength)}</p>
+                    <div class="anime__trailer">
+                        <span>▶️ Assista o trailer</span>
                     </div>
                 </div>
             </div>
         `
+        const aniTrailer = document.querySelector('.anime__trailer');
+        aniTrailer.style.background = "linear-gradient(to bottom, #000000da, #000000da)," + `url('${aniDataAtt.posterImage.small}')` + "no-repeat center center";
         acessarCategorias(anime.data.id);
         acessarDetalhes(anime.data.id);
         acessarPersonagens(anime.data.id);
