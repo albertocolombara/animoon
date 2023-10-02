@@ -1,4 +1,4 @@
-import { apiUrl } from "../main_original.js";
+import { apiUrl } from "../main.js";
 import { formatarData, formatarTemporada } from "./utils.js";
 
 const secAniDetalhes = document.querySelector('.anime__info-detalhes');

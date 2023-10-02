@@ -1,4 +1,4 @@
-import { apiUrl } from "../main_original.js";
+import { apiUrl } from "../main.js";
 
 export function acessarCategorias(idAnime) {
     const secAniCat = document.querySelector('.anime__categorias')

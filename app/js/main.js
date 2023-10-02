@@ -9,5 +9,5 @@ export const secAni = document.querySelector('.anime');
 export const secAniIntro = document.querySelector('.anime__intro');
 export const secAniBottom = document.querySelector('.anime__info-bottom');
 
-sortearAnime()
-iniciarPesquisa()
+sortearAnime();
+iniciarPesquisa();

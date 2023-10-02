@@ -1,4 +1,4 @@
-import { apiUrl } from "../main_original.js";
+import { apiUrl } from "../main.js";
 
 const secAniPers = document.querySelector('.anime__info-personagens');
 const listaPers = document.querySelector('.listar-personagens');

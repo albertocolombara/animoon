@@ -1,6 +1,6 @@
 import { acessarAnime } from "./animeRender.js";
 import { limparTela } from "./utils.js";
-import { toggleBemVindo, secAni } from "../main_original.js";
+import { toggleBemVindo, secAni } from "../main.js";
 
 let botaoHabilitado = true;
 

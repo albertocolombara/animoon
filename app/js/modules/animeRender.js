@@ -1,11 +1,10 @@
-import { apiUrl, secAniIntro, secAniBottom, toggleBemVindo, secAni } from "../main_original.js";
+import { apiUrl, secAniIntro, secAniBottom, toggleBemVindo, secAni } from "../main.js";
 import { acessarCategorias } from "./animeCategoria.js";
 import { acessarStaff } from "./animeStaff.js";
 import { acessarDetalhes } from "./animeDetalhes.js";
 import { acessarPersonagens } from "./animePersonagem.js";
 import { formatarTitulo, ratingStars, verificarStatusAnime, verificarDuracao } from "./utils.js";
-
-
+import { renderVideo } from "./animeVideo.js";
 
 export function acessarAnime(idAnime) {
     secAni.style.display = "initial";
@@ -53,10 +52,17 @@ export function acessarAnime(idAnime) {
                     <div class="anime__trailer">
                         <span>▶️ Assista o trailer</span>
                     </div>
+                    </div>
                 </div>
             </div>
         `
         const aniTrailer = document.querySelector('.anime__trailer');
+        aniTrailer.addEventListener('click', () => {
+            if (aniDataAtt.youtubeVideoId === null) {
+                alert("Trailer não disponível :(")
+            } else renderVideo(aniDataAtt.youtubeVideoId);
+        }) 
+
         aniTrailer.style.background = "linear-gradient(to bottom, #000000da, #000000da)," + `url('${aniDataAtt.posterImage.small}')` + "no-repeat center center";
         acessarCategorias(anime.data.id);
         acessarDetalhes(anime.data.id);

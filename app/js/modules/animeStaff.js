@@ -1,4 +1,4 @@
-import { apiUrl } from "../main_original.js";
+import { apiUrl } from "../main.js";
 
 const secAniStaff = document.querySelector('.anime__info-staff');
 const listaStaff = document.querySelector('.listar-staff');

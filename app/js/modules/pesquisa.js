@@ -1,4 +1,4 @@
-import { campoDePesquisa, resultadosDePesquisa, apiUrl } from "../main_original.js";
+import { campoDePesquisa, resultadosDePesquisa, apiUrl } from "../main.js";
 import { acessarAnime } from "./animeRender.js";
 import { formatarTitulo, limparTela } from "./utils.js";
 
@@ -32,7 +32,7 @@ export function iniciarPesquisa() {
                 pesquisaLi.classList.add('resultado');
     
                 pesquisaTitulo.textContent = formatarTitulo(anime.attributes);
-                pesquisaImg.src = anime.attributes.posterImage.tiny;
+                pesquisaImg.src = anime.attributes.posterImage.tiny ?? anime.attributes.posterImage.original;
                 pesquisaImg.alt = formatarTitulo(anime.attributes);
                 pesquisaImg.width = "30";
     

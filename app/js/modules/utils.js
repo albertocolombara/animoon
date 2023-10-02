@@ -1,4 +1,4 @@
-import { resultadosDePesquisa, campoDePesquisa, toggleBemVindo } from "../main_original.js";
+import { resultadosDePesquisa, campoDePesquisa, toggleBemVindo } from "../main.js";
 
 export function limparTela() {
     resultadosDePesquisa.innerHTML = "";
