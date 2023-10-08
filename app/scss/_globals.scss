@@ -19,6 +19,13 @@ body {
     padding-right: 60px;
 }
 
+@media (max-width: 900px) {
+    .padding-lr {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 *::-webkit-scrollbar {
     width: 8px;
   }
@@ -42,11 +49,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    text-align: center;
 }
 
 .bem-vindo h2 {
     font-size: 64px;
-    text-align: center;
     letter-spacing: -2px;
 }
 

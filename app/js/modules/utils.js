@@ -7,7 +7,7 @@ export function limparTela() {
 }
 
 export function formatarTitulo(animeData) {
-    const formatTitles = animeData.titles.en || animeData.titles.en_us || animeData.titles.en_jp;
+    const formatTitles = animeData.titles.en || animeData.titles.en_us || animeData.titles.en_jp || animeData.titles.en_cn;
     return formatTitles || "Título Não Disponível";
 }
 

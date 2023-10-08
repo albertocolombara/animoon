@@ -1,0 +1,261 @@
+@media (max-width: 900px) {
+    .anime {
+    
+        &__intro {
+            padding-top: 70px;
+            padding-bottom: 30px;
+
+            p {
+                line-height: 22px;
+                font-size: 12px;
+    
+                &:first-child {
+                    margin-top: 20px;
+                }
+            }
+        
+            h2 {
+                line-height: 40px;
+                margin-top: 10px;
+                font-size: 28px;
+            }
+        
+            &-left {
+        
+                img {
+                    width: 200px;
+                }
+            }
+    
+            &-right {
+    
+                .anime__categorias {
+                    margin-top: 10px;
+                }
+    
+                .anime__wrapper {
+                    margin-top: 20px;
+    
+                    .anime__extra-infos {
+                        gap: 10px;
+                        padding: 5px;
+                        justify-content: center;
+
+                        div {
+                            flex-basis: 90px;
+                            // text-align: center;
+                        }
+        
+                        h4 {
+                            font-size: 14px;
+                        }
+        
+                        p {
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .anime__trailer {
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+                } 
+            }
+        }
+    } 
+
+    .anime {
+
+        &__info-bottom {
+            gap: 10px;
+    
+            .anime__info-personagens, .anime__info-staff, .anime__info-detalhes {
+                padding: 15px;
+    
+                h3 {
+                    font-size: 18px;
+                }
+                
+                h4 {
+                    font-size: 14px;
+                }
+    
+                span {
+                    font-size: 12px;
+                }
+    
+                .listar-staff {
+    
+                    &-item {
+                        margin-top: 10px;
+                    }
+                }
+    
+                .listar-personagens {
+    
+                    &-item {
+                        
+                        img {
+                            width: 40px;
+                        }
+    
+                        .nome-personagem::after {
+                            font-size: 10px; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15vh;
+    
+        .logo {
+
+            img {
+                width: 150px;
+            }
+        }
+    }
+    
+    .nav {
+        gap: 5px;
+
+        &__voltar, &__randomizar {
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .anime {
+    
+        iframe {
+            aspect-ratio: 16/9;
+            width: 100%;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &__intro {
+            flex-direction: column;
+        
+            &-left {
+        
+                img {
+                    margin: initial;
+                }
+            }
+
+            &-right {
+
+                .anime__wrapper {
+
+                    .anime__extra-infos  {
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+        }
+    } 
+
+    .anime {
+
+        &__info-bottom {
+            gap: 10px;
+            grid-template-columns: 1fr;
+    
+            .anime__info-personagens, .anime__info-staff, .anime__info-detalhes {
+                padding: 20px;
+    
+                h3 {
+                    font-size: 18px;
+                }
+                
+                h4 {
+                    font-size: 14px;
+                }
+    
+                span {
+                    font-size: 12px;
+                }
+    
+                .listar-staff {
+    
+                    &-item {
+                        margin-top: 10px;
+                    }
+                }
+    
+                .listar-personagens {
+    
+                    &-item {
+                        
+                        img {
+                            width: 40px;
+                        }
+    
+                        .nome-personagem::after {
+                            font-size: 10px; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .anime {
+    
+        &__intro {
+    
+            &-right {
+    
+                .anime__wrapper {
+                    flex-direction: column;
+                    height: auto;
+
+                    .anime__extra-infos {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        padding: 20px;
+    
+                        div {
+                            flex-basis: auto;
+                        }
+                    }
+
+                    .anime__trailer {
+                        width: 100%;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                    }
+                } 
+            }
+        }
+    } 
+
+    .anime {
+
+        &__info-bottom {
+
+            .anime__info-personagens {
+
+                .listar-personagens {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+}

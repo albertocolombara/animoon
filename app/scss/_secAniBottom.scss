@@ -44,7 +44,6 @@
             .listar-personagens {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(100px, 1fr));
-                flex-wrap: wrap;
                 justify-content: center;
                 gap: 20px;
                 flex-direction: column;

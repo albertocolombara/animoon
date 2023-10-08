@@ -50,7 +50,7 @@ export function acessarAnime(idAnime) {
                         </div>
                     </div>
                     <div class="anime__trailer">
-                        <span>▶️ Assista o trailer</span>
+                        <span>▶️</span>
                     </div>
                     </div>
                 </div>
@@ -62,7 +62,6 @@ export function acessarAnime(idAnime) {
                 alert("Trailer não disponível :(")
             } else renderVideo(aniDataAtt.youtubeVideoId);
         }) 
-
         aniTrailer.style.background = "linear-gradient(to bottom, #000000da, #000000da)," + `url('${aniDataAtt.posterImage.small}')` + "no-repeat center center";
         acessarCategorias(anime.data.id);
         acessarDetalhes(anime.data.id);

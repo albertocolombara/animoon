@@ -56,6 +56,7 @@
                 align-items: flex-end;
 
                 &-favorite {
+                    display: none;
                     padding: 10px 20px;
                     border: 1px solid white;
                     border-radius: 6px;
@@ -106,15 +107,19 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
+                width: 100%;
                 height: 100px;
                 margin-top: 30px;
 
                 .anime__extra-infos {
                     flex: 3;
+                    width: 100%;
+                    height: 100%;
                     display: flex;
                     padding: 20px;
                     border-radius: 6px;
                     justify-content: flex-start;
+                    align-items: center;
                     background: rgba(11, 13, 46, 0.57);
                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
                     backdrop-filter: blur(1.1px);
@@ -140,13 +145,21 @@
                     flex: 1;
                     border: 1px solid rgba(255, 255, 255, 0.568);
                     border-radius: 6px;
+                    width: 100%;
                     height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    flex-direction: column;
+                    gap: 5px;
                     text-align: center;
                     cursor: pointer;
                     transition: opacity .6s ease;
+
+                    &::after {
+                        content: "Assista o trailer";
+                        font-size: 12px;
+                    }
 
                     &:hover {
                         opacity: .5;
