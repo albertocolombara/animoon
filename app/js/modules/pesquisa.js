@@ -10,7 +10,7 @@ export function iniciarPesquisa() {
         if (termoDePesquisa.length >= 3) {
             fetch(`${apiUrl}?filter[text]=${termoDePesquisa}&fields[anime]=titles,posterImage&page[limit]=7`)
                 .then(response => response.json())
-                .then((busca) => {
+                .then(busca => {
                     const filtrarBusca = busca.data.filter(anime => 
                         !["delete", "deleted", "Delete"].includes(anime.attributes.titles.en) &&
                         !["delete", "deleted", "Delete"].includes(anime.attributes.titles.en_jp)
@@ -25,7 +25,7 @@ export function iniciarPesquisa() {
         resultadosDePesquisa.innerHTML = "";
     
         if (Array.isArray(dadosAnime)) {
-            dadosAnime.forEach ((anime) => {
+            dadosAnime.forEach (anime => {
                 const pesquisaTitulo = document.createElement('a');
                 const pesquisaImg = document.createElement('img');
                 const pesquisaLi = document.createElement('li');

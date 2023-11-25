@@ -67,5 +67,5 @@ export function formatarTemporada(data) {
 export function verificarDuracao(duracao) {
     if (duracao) {
         return `${duracao} min`
-    } else return " "
+    } else return "-"
 }

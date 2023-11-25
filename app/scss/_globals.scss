@@ -10,7 +10,7 @@ body {
     color: white;
     overflow-x: hidden;
     width: 100%;
-    max-width: 1440px;
+    max-width: 1920px;
     margin: 0 auto;
 }
 
@@ -45,7 +45,7 @@ body {
     justify-content: center;
     flex-direction: column;
     height: calc(100vh - 15vh - 20px);
-    background: linear-gradient(to top, #06093f80, #06093f9f), url('/imgs/pixel.gif');
+    background: linear-gradient(to top, #06093f80, #06093f9f), url('imgs/pixel.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
